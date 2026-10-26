@@ -31,7 +31,7 @@ pipeline {
                 ]) {
                     sh '''
                         set +x
-                        docker compose -f compose.yaml config -q
+                        docker-compose -f docker-compose.yaml config -q
                     '''
                 }
             }
@@ -39,7 +39,7 @@ pipeline {
 
         stage('Build Images') {
             steps {
-                sh 'docker-compose -f docker-compose.yml config -q
+                sh 'docker-compose -f docker-compose.yaml config -q
             }
         }
 
