@@ -39,7 +39,7 @@ pipeline {
 
         stage('Build Images') {
             steps {
-                sh 'docker-compose -f docker-compose.yaml config -q
+                sh 'docker-compose -f docker-compose.yaml build'
             }
         }
 
@@ -57,7 +57,7 @@ pipeline {
                 ]) {
                     sh '''
                         set +x
-                        docker-compose -f docker-compose.yml config -q
+                        docker-compose -f docker-compose.yaml up -d --build --remove-orphans
                     '''
                 }
             }
@@ -94,8 +94,7 @@ pipeline {
 
     post {
         always {
-            sh 'docker-compose -f docker-compose.yml config -q
+            sh 'docker compose ps || true'
         }
     }
 }
-
