@@ -57,7 +57,7 @@ pipeline {
                 ]) {
                     sh '''
                         set +x
-                        docker-compose -f docker compose.yml config -q
+                        docker-compose -f docker-compose.yml config -q
                     '''
                 }
             }
