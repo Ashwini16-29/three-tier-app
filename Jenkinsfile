@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                git branch: 'master' , url: 'https://github.com/Ashwini16-29/three-tier-p.git'
             }
         }
 
